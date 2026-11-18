@@ -7,14 +7,27 @@
 One image that sums up the world's news of **Wednesday, November 18, 2026**,
 built for the [make.fun news-image-20261118 bounty](https://make.fun/bounty/news-image-20261118).
 
-The image is a one-page newspaper: Trump lands in Shenzhen for the APEC
-summit and a first trilateral with Xi and Putin; Ukraine blows a gap in the
-Crimea Bridge; US jets strike Iran's Qeshm Island and tankers are hit in
-Hormuz; the US loses its measles-free status; Voyager 1 reaches one
-light-day from home; a Russian military plane crashes in Siberia; the
-Earthshot Prize names five winners — plus a footer of the day's other
-stories.
+The image is a one-page newspaper front page:
 
-`gen_image.py` draws the page (Pillow); `main.py` is the entrypoint: it
-copies `entry.png` to `/output/entry.png`, deterministically, with no
-network.
+- **Headline (Shenzhen):** Trump lands in Shenzhen; Xi greets him at the
+  airport, in town for the APEC summit, with a first-ever trilateral
+  with Xi and Putin following Thursday.
+- **Crimea:** Ukraine blows a gap in the Crimea Bridge.
+- **Gulf:** US jets strike Iran's Qeshm Island; tankers struck in Hormuz.
+- **Health:** The US loses its measles-free status.
+- **Space:** Voyager 1 is now one light-day from home.
+- **Siberia:** A Russian military plane crashes in Siberia.
+- **Climate:** Earthshot Prize — five winners, $1.3m each.
+
+Plus an "ALSO TODAY" footer with the day's other stories. Sources:
+AP, AFP and Reuters via The Japan Times, NDTV, The Manila Times,
+Qatar Tribune and Outlook India.
+
+## How it works
+
+- `gen_image.py` draws the page deterministically with Pillow (DejaVu fonts).
+- `entry.png` is the generated 1024×1024 image.
+- `main.py` is the competition entrypoint (Python 3.13, standard library
+  only): it copies `entry.png` to `/output/entry.png`, or to
+  `$MAKEFUN_OUTPUT_DIR/entry.png` when that variable is set. Running it
+  twice produces byte-identical output.
